@@ -15,8 +15,8 @@
   ],
   "tags": [
     {
-      "name": "Cars CRUD API",
-      "description": "CRUD REST API с использованием SWAGGER-UI"
+      "name": "GeniusTgBotAPI",
+      "description": "API с использованием SWAGGER-UI"
     }
   ],
   "paths": {
@@ -30,7 +30,7 @@
           "200": {
             "description": "description",
             "schema": {
-              "$ref": "#/components/schemas/ActorGet"
+              "$ref": "#/components/schemas/ActorGetRequest"
             }
           }
         }
@@ -48,7 +48,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ActorPost"
+                "$ref": "#/components/schemas/ActorPostRequest"
               }
             }
           }
@@ -97,7 +97,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SongPost"
+                "$ref": "#/components/schemas/SongPostRequest"
               }
             }
           }
@@ -109,7 +109,7 @@
           "201": {
             "description": "description",
             "schema": {
-              "$ref": "#/components/schemas/id"
+              "$ref": "#/components/schemas/SongGetResponse"
             }
           },
           "400": {
@@ -142,14 +142,10 @@
           }
         }
         },
-      "ActorGetResponse": {
+      "ActorGetRequest": {
         "type": "object",
         "properties": {
           "actor": {
-            "type": "string",
-            "format": "string"
-          },
-          "description": {
             "type": "string",
             "format": "string"
           }
@@ -177,11 +173,10 @@
           },
           "status": {
             "type": "boolean"
-           }
+          }
           }
         },
-        "SongGetResponse": {
-        "type": "object",
+        "SongGetResponse": { "type": "object",
         "properties": {
           "name": {
             "type": "string",
