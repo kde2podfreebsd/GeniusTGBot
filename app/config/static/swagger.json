@@ -1,0 +1,198 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Своеволин И.С, группа М80-203Б-21. Курсовая работа по ИСРППС: Документация и тестирование swagger",
+    "version": "22.0.0",
+    "title": "GeniusAPI!",
+    "contact": {
+      "email": "vanish@internet.ru"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:5000/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Cars CRUD API",
+      "description": "CRUD REST API с использованием SWAGGER-UI"
+    }
+  ],
+  "paths": {
+    "/actor/{actor_name}": {
+      "get": {
+        "tags": [
+          "Get inquiry by actors name"
+        ],
+        "summary": "узнать информацию об артисте по имени",
+        "responses": {
+          "200": {
+            "description": "description",
+            "schema": {
+              "$ref": "#/components/schemas/ActorGet"
+            }
+          }
+        }
+      }
+    },
+    "/actor": {
+      "post": {
+        "tags": [
+          "Post Actor"
+        ],
+        "summary": "добавить артиста в базу данных",
+        "requestBody": {
+          "description": "description",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ActorPost"
+              }
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "description",
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          },
+          "400": {
+            "description": "Failed. Bad post data."
+          }
+        }
+      }
+    },
+    "/song/{song_name}": {
+      "get": {
+        "tags": [
+          "Get inquiry by song name"
+        ],
+        "summary": "узнать текст песни по её названию",
+        "responses": {
+          "200": {
+            "description": "description",
+            "schema": {
+              "$ref": "#/components/schemas/SongGet"
+            }
+          }
+        }
+      }
+    },
+     "/song": {
+      "post": {
+        "tags": [
+          "Post Song"
+        ],
+        "summary": "добавить песню в базу данных",
+        "requestBody": {
+          "description": "description",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SongPost"
+              }
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "description",
+            "schema": {
+              "$ref": "#/components/schemas/id"
+            }
+          },
+          "400": {
+            "description": "Failed. Bad post data."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ActorPostRequest": {
+        "type": "object",
+        "properties": {
+          "actor": {
+            "type": "string",
+            "format": "string"
+          }
+        }
+        },
+      "ActorPostResponse": {
+        "type": "object",
+        "properties": {
+          "msg": {
+            "type": "string",
+            "format": "string"
+          },
+          "status": {
+            "type": "boolean"
+          }
+        }
+        },
+      "ActorGetResponse": {
+        "type": "object",
+        "properties": {
+          "actor": {
+            "type": "string",
+            "format": "string"
+          },
+          "description": {
+            "type": "string",
+            "format": "string"
+          }
+          }
+        },
+      "SongPostRequest": {
+        "type": "object",
+        "properties": {
+          "actor_name": {
+            "type": "string",
+            "format": "string"
+          },
+          "songname": {
+            "type": "string",
+            "format": "string"
+          }
+          }
+        },
+        "SongPostResponse": {
+        "type": "object",
+        "properties": {
+          "msg": {
+            "type": "string",
+            "format": "string"
+          },
+          "status": {
+            "type": "boolean"
+           }
+          }
+        },
+        "SongGetResponse": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "format": "string"
+          },
+          "text": {
+            "type": "string",
+            "format": "string"
+          }
+          }
+        }
+      }
+    }
+  }
