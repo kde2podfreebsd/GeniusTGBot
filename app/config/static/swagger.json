@@ -1,11 +1,11 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "Своеволин И.С, группа М80-203Б-21. Курсовая работа по ИСРППС: Документация и тестирование swagger",
+    "description": "Богомолов И.В, группа М80-203Б-21. Курсовая работа по ИСРППС: Документация и тестирование swagger",
     "version": "22.0.0",
     "title": "GeniusAPI!",
     "contact": {
-      "email": "vanish@internet.ru"
+      "email": "qhomop@gmail.com"
     }
   },
   "servers": [
@@ -21,6 +21,15 @@
   ],
   "paths": {
     "/actor/{actor_name}": {
+      "parameters": [
+        {
+          "name": "actor_name",
+          "in": "path",
+          "required": true,
+          "description": "уникальное имя артиста",
+          "type": "string"
+        }
+      ],
       "get": {
         "tags": [
           "Get inquiry by actors name"
@@ -70,6 +79,15 @@
       }
     },
     "/song/{song_name}": {
+      "parameters": [
+        {
+          "name": "actor_name",
+          "in": "path",
+          "required": true,
+          "description": "название песни",
+          "type": "string"
+        }
+      ],
       "get": {
         "tags": [
           "Get inquiry by song name"
